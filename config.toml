@@ -1,0 +1,10 @@
+theme = "hugo-universal-theme"
+baseURL = "https://yoon92kr.github.io/pzparkgolf/"
+title = "PZ 파크골프"
+languageCode = "ko-kr"
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  date_format = "2006-01-02"
