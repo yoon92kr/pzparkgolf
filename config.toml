@@ -8,3 +8,32 @@ languageCode = "ko-kr"
 
 [params]
   date_format = "2006-01-02"
+  logo = "img/logo.png"
+  logo_text = "PZ 파크골프"   
+  logo_small = "img/logo.png"
+  
+
+[[menu.main]]
+  name = "회사 소개"
+  url = "/about/"
+  weight = 1
+
+[[menu.main]]
+  name = "제품 소개"
+  url = "/products/"
+  weight = 2
+
+[[menu.main]]
+  name = "설치 사례"
+  url = "/cases/"
+  weight = 3
+
+[[menu.main]]
+  name = "창업 문의"
+  url = "/startup/"
+  weight = 4
+
+[[menu.main]]
+  name = "고객센터"
+  url = "/support/"
+  weight = 5
