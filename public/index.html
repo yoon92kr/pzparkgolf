@@ -78,9 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="hero-body">
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background-image:url('http://localhost:1313/pzparkgolf/images/main1.png');"></div>
-        <div class="swiper-slide" style="background-image:url('http://localhost:1313/pzparkgolf/images/main2.png');"></div>
-        <div class="swiper-slide" style="background-image:url('http://localhost:1313/pzparkgolf/images/main3.png');"></div>
+        <div class="swiper-slide" style="background-image:url('http://localhost:1313/pzparkgolf/images/main1.jpg');"></div>
+        <div class="swiper-slide" style="background-image:url('http://localhost:1313/pzparkgolf/images/main2.jpg');"></div>
+        <div class="swiper-slide" style="background-image:url('http://localhost:1313/pzparkgolf/images/main3.jpg');"></div>
       </div>
       
       <div class="swiper-button-next"></div>
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <section id="sub-image" class="section">
   <div class="container has-text-centered">
-    <img src="http://localhost:1313/pzparkgolf/images/body1.png" alt="body1" style="max-width:100%; border-radius:12px;">
+    <img src="http://localhost:1313/pzparkgolf/images/body1.jpg" alt="body1" style="max-width:100%; border-radius:12px;">
   </div>
 </section>
 
@@ -162,31 +162,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const swiper = new Swiper('.mySwiper', {
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      grabCursor: true,
-      effect: 'slide',
-    });
-
-    
-    window.addEventListener('load', () => swiper.update());
+document.addEventListener('DOMContentLoaded', () => {
+  const swiper = new Swiper('.mySwiper', {
+    loop: true,
+    speed: 800,            
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    grabCursor: true,
+    effect: 'slide',
+    watchSlidesProgress: true,   
+    watchSlidesVisibility: true, 
+    preloadImages: true,         
+    lazy: false,                 
   });
+
+  
+  document.querySelectorAll('.swiper-slide').forEach(slide => {
+    slide.style.transform = 'translate3d(0,0,0)';
+    slide.style.backfaceVisibility = 'hidden';
+    slide.style.willChange = 'transform';
+  });
+
+  
+  window.addEventListener('load', () => swiper.update());
+});
 </script>
+
 
   </body>
 </html>
