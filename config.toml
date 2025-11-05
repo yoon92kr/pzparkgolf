@@ -1,7 +1,7 @@
 baseURL = "/"
 languageCode = "ko-kr"
 title = "PZ 파크골프"
-theme = "hugo-fresh"
+theme = ""
 
 [params]
   navbarLogo = "images/logo.png"
