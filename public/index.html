@@ -74,20 +74,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <main>
       
-  <section id="hero" class="hero is-fullheight">
-  <div class="hero-body" id="hero-body" 
-style="background: url('http://localhost:1313/pzparkgolf/images/main1.png') center/cover no-repeat;">
-    <div class="container has-text-centered">
-      <h1 class="title has-text-white">피지파크골프</h1>
-      <p class="subtitle has-text-white">전국 파크골프장 설계·시공 전문기업</p>
-      <a href="#contact" class="button is-primary is-medium mt-5">설치 문의하기</a>
+  <section id="hero" class="hero">
+  <div class="hero-body">
+    <div class="swiper mySwiper" style="height:100%;">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image:url('http://localhost:1313/pzparkgolf/images/main1.png');"></div>
+        <div class="swiper-slide" style="background-image:url('http://localhost:1313/pzparkgolf/images/main2.png');"></div>
+        <div class="swiper-slide" style="background-image:url('http://localhost:1313/pzparkgolf/images/main3.png');"></div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
-  </div>
-</section>
-
-<section id="sub-image" class="section">
-  <div class="container has-text-centered">
-    <img src="./images/body1.png" alt="body1" style="max-width:100%; border-radius:12px;">
   </div>
 </section>
 
@@ -153,6 +151,30 @@ style="background: url('http://localhost:1313/pzparkgolf/images/main1.png') cent
     </p>
   </div>
 </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
+<script>
+  const swiper = new Swiper('.mySwiper', {
+    loop: true,
+    autoplay: {
+      delay: 5000, 
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    grabCursor: true, 
+    effect: 'slide',  
+  });
+</script>
 
   </body>
 </html>
