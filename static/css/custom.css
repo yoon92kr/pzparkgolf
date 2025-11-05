@@ -1,0 +1,181 @@
+/* ✅ 기본 폰트 & 색상 세팅 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+:root {
+  --main-green: #2e7d32;
+  --accent-green: #43a047;
+  --light-bg: #f5f5f5;
+  --text-dark: #222;
+  --text-light: #f9f9f9;
+  --border-color: #e0e0e0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* ✅ 네비게이션 */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease-in-out;
+}
+.navbar-item, .navbar-item:visited {
+  color: var(--text-dark) !important;
+  font-weight: 500;
+}
+.navbar-item:hover {
+  color: var(--main-green) !important;
+}
+
+/* ✅ Hero Section */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  color: white;
+}
+
+.hero-body {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35); /* 텍스트 대비 어둡기 */
+  z-index: 1;
+}
+
+.hero-body .container {
+  position: relative;
+  z-index: 2; /* 텍스트가 이미지 위로 올라오도록 */
+  text-align: center;
+}
+
+.hero-body .title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.hero-body .subtitle {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #e8f5e9;
+  margin-top: 1rem;
+}
+
+.hero-body .button {
+  background-color: var(--accent-green);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 0.9rem 2rem;
+  margin-top: 2rem;
+  transition: 0.3s;
+}
+
+.hero-body .button:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+}
+
+
+
+
+/* ✅ Section 기본 스타일 */
+.section {
+  padding: 6rem 1.5rem;
+}
+.section .title {
+  color: var(--main-green);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.section .subtitle {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ✅ About 섹션 */
+#about img {
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+#about img:hover {
+  transform: scale(1.03);
+}
+
+/* ✅ Product 섹션 */
+#product {
+  background-color: var(--light-bg);
+}
+#product img {
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+#product img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+#product h3 {
+  color: var(--main-green);
+  margin-top: 1rem;
+}
+
+/* ✅ Contact 섹션 */
+#contact .button {
+  background-color: var(--main-green);
+  border-radius: 30px;
+  padding: 1rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  transition: 0.3s;
+}
+#contact .button:hover {
+  background-color: var(--accent-green);
+  transform: translateY(-3px);
+}
+
+/* ✅ Footer */
+footer {
+  background: linear-gradient(180deg, #2e7d32 0%, #1b5e20 100%);
+  color: #f9f9f9;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+footer a {
+  color: #c8e6c9;
+  transition: color 0.2s;
+}
+footer a:hover {
+  color: #fff;
+}
+
+/* ✅ 반응형 */
+@media screen and (max-width: 768px) {
+  .hero .title {
+    font-size: 2.2rem;
+  }
+  .hero .subtitle {
+    font-size: 1.1rem;
+  }
+}
