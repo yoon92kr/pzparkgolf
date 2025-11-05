@@ -3,6 +3,7 @@ languageCode = "ko-kr"
 title = "PZ 파크골프"
 theme = ""
 
+
 [params]
   navbarLogo = "images/logo.png"
   custom_css = ["css/custom.css"]
