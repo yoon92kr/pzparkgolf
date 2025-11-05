@@ -2,7 +2,7 @@ baseURL = "https://yoon92kr.github.io/pzparkgolf/"
 languageCode = "ko-kr"
 title = "PZ 파크골프"
 theme = ""
-relativeURLs = true
+relativeURLs = false
 canonifyURLs = true
 
 [params]

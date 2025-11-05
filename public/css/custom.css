@@ -1,4 +1,4 @@
-/* ✅ 기본 폰트 & 색상 세팅 */
+/* 기본 폰트 & 색상 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
 :root {
@@ -15,7 +15,7 @@ html {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-/* ✅ 네비게이션 */
+/* 네비게이션 */
 .navbar {
   background-color: rgba(255, 255, 255, 0.97);
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -30,32 +30,61 @@ html {
   color: var(--main-green) !important;
 }
 
-/* ✅ Hero Section */
+/* Hero Section */
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   color: white;
+  overflow: hidden; /* 슬라이드 영역 넘침 방지 */
 }
 
 .hero-body {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
+  display: flex;          /* flex 유지 */
+  align-items: center;    /* 세로 중앙 */
+  justify-content: center;/* 가로 중앙 */
+  padding: 0;
 }
 
 .hero-body::after {
   content: "";
   position: absolute;
   inset: 0;
-
+  background: rgba(0,0,0,0.2); /* 필요시 overlay */
   z-index: 1;
+  pointer-events: none;  /* 클릭 방해 제거 */
 }
 
+/* Swiper */
+.swiper.mySwiper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* overlay 위 */
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  backface-visibility: hidden; /* GPU 가속 도움 */
+  transform: translate3d(0,0,0); /* GPU 렌더링 활성화 */
+}
+
+
+/* Swiper 버튼 & 페이징 */
+.swiper-button-next,
+.swiper-button-prev,
+.swiper-pagination {
+  z-index: 3;  /* overlay보다 위 */
+  cursor: pointer;
+}
+
+/* Hero 텍스트 */
 .hero-body .container {
   position: relative;
-  z-index: 2; /* 텍스트가 이미지 위로 올라오도록 */
+  z-index: 4; /* 슬라이드, overlay, 버튼 위 */
   text-align: center;
 }
 
@@ -88,33 +117,8 @@ html {
   background-color: #388e3c;
   transform: translateY(-2px);
 }
-/* Hero section 전체 높이 강제 */
-#hero {
-  height: 100vh;
-}
 
-.hero-body {
-  height: 100%;
-  padding: 0;
-  display: block; /* flex 제거 */
-}
-
-/* Swiper 컨테이너와 슬라이드 높이 100% */
-.swiper.mySwiper,
-.swiper-slide {
-  width: 100%;
-  height: 100%;
-}
-
-/* 슬라이드 배경 꽉 채우기 */
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-
-/* ✅ Section 기본 스타일 */
+/* Section 기본 스타일 */
 .section {
   padding: 6rem 1.5rem;
 }
@@ -128,7 +132,7 @@ html {
   line-height: 1.7;
 }
 
-/* ✅ About 섹션 */
+/* About */
 #about img {
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
@@ -138,7 +142,7 @@ html {
   transform: scale(1.03);
 }
 
-/* ✅ Product 섹션 */
+/* Product */
 #product {
   background-color: var(--light-bg);
 }
@@ -156,7 +160,7 @@ html {
   margin-top: 1rem;
 }
 
-/* ✅ Contact 섹션 */
+/* Contact 버튼 */
 #contact .button {
   background-color: var(--main-green);
   border-radius: 30px;
@@ -172,7 +176,7 @@ html {
   transform: translateY(-3px);
 }
 
-/* ✅ Footer */
+/* Footer */
 footer {
   background: linear-gradient(180deg, #2e7d32 0%, #1b5e20 100%);
   color: #f9f9f9;
@@ -192,7 +196,7 @@ footer a:hover {
   color: #fff;
 }
 
-/* ✅ 반응형 */
+/* 반응형 */
 @media screen and (max-width: 768px) {
   .hero .title {
     font-size: 2.2rem;

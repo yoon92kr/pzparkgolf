@@ -18,15 +18,16 @@
   </div>
 </footer>
 
-<!-- Swiper JS CDN -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<!-- Swiper JS & CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', () => {
   const swiper = new Swiper('.mySwiper', {
     loop: true,
+    speed: 800,            // 슬라이드 전환 속도(ms)
     autoplay: {
-      delay: 5000, // 5초마다 자동 슬라이드
+      delay: 5000,
       disableOnInteraction: false,
     },
     pagination: {
@@ -37,7 +38,23 @@
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-    grabCursor: true, // 드래그 가능
-    effect: 'slide',  // 슬라이드 효과
+    grabCursor: true,
+    effect: 'slide',
+    watchSlidesProgress: true,   // 성능 최적화
+    watchSlidesVisibility: true, // 성능 최적화
+    preloadImages: true,         // 이미지 미리 로드
+    lazy: false,                 // 필요하면 true로 lazy 로딩
   });
+
+  // GPU 가속 적용: 각 슬라이드 transform 3d 처리
+  document.querySelectorAll('.swiper-slide').forEach(slide => {
+    slide.style.transform = 'translate3d(0,0,0)';
+    slide.style.backfaceVisibility = 'hidden';
+    slide.style.willChange = 'transform';
+  });
+
+  // 이미지 로딩 후 슬라이드 계산
+  window.addEventListener('load', () => swiper.update());
+});
 </script>
+

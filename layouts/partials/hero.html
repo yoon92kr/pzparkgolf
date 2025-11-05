@@ -1,14 +1,21 @@
 <section id="hero" class="hero">
   <div class="hero-body">
-    <div class="swiper mySwiper" style="height:100%;">
+    <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background-image:url('{{ "images/main1.png" | absURL }}');"></div>
-        <div class="swiper-slide" style="background-image:url('{{ "images/main2.png" | absURL }}');"></div>
-        <div class="swiper-slide" style="background-image:url('{{ "images/main3.png" | absURL }}');"></div>
+        <div class="swiper-slide" style="background-image:url('{{ "images/main1.jpg" | absURL }}');"></div>
+        <div class="swiper-slide" style="background-image:url('{{ "images/main2.jpg" | absURL }}');"></div>
+        <div class="swiper-slide" style="background-image:url('{{ "images/main3.jpg" | absURL }}');"></div>
       </div>
+      <!-- 슬라이드 버튼 & 페이징 -->
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-pagination"></div>
     </div>
+  </div>
+</section>
+
+<section id="sub-image" class="section">
+  <div class="container has-text-centered">
+    <img src="{{ "images/body1.jpg" | absURL }}" alt="body1" style="max-width:100%; border-radius:12px;">
   </div>
 </section>
