@@ -2,39 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on PZ 파크골프</title>
-    <link>http://localhost:1313/pzparkgolf/categories/</link>
+    <link>//localhost:1313/categories/</link>
     <description>Recent content in Categories on PZ 파크골프</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 01 Aug 2021 21:29:20 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/pzparkgolf/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Lorem</title>
-      <link>http://localhost:1313/pzparkgolf/categories/lorem/</link>
-      <pubDate>Sun, 01 Aug 2021 21:29:20 +0200</pubDate>
-      <guid>http://localhost:1313/pzparkgolf/categories/lorem/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Programming</title>
-      <link>http://localhost:1313/pzparkgolf/categories/programming/</link>
-      <pubDate>Sun, 01 Aug 2021 21:29:20 +0200</pubDate>
-      <guid>http://localhost:1313/pzparkgolf/categories/programming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Pseudo</title>
-      <link>http://localhost:1313/pzparkgolf/categories/pseudo/</link>
-      <pubDate>Sun, 01 Aug 2021 21:29:20 +0200</pubDate>
-      <guid>http://localhost:1313/pzparkgolf/categories/pseudo/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Starting</title>
-      <link>http://localhost:1313/pzparkgolf/categories/starting/</link>
-      <pubDate>Wed, 24 Jun 2015 13:50:46 +0200</pubDate>
-      <guid>http://localhost:1313/pzparkgolf/categories/starting/</guid>
-      <description></description>
-    </item>
+    <atom:link href="//localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
