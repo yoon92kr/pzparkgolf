@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>피지파크골프 on PZ 파크골프</title>
-    <link>https://yoon92kr.github.io/pzparkgolf/</link>
+    <link>http://localhost:1313/pzparkgolf/</link>
     <description>Recent content in 피지파크골프 on PZ 파크골프</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <atom:link href="https://yoon92kr.github.io/pzparkgolf/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/pzparkgolf/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
