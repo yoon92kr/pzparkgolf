@@ -2,11 +2,12 @@ baseURL = "https://yoon92kr.github.io/pzparkgolf/"
 languageCode = "ko-kr"
 title = "PZ 파크골프"
 theme = ""
-
+relativeURLs = true
+canonifyURLs = true
 
 [params]
   navbarLogo = "images/logo.png"
-  custom_css = ["/css/custom.css"]
+  custom_css = ["css/custom.css"]
   
   [[menu.main]]
     name = "회사 소개"
@@ -17,4 +18,3 @@ theme = ""
   [[menu.main]]
     name = "설치 문의"
     url = "#contact"
-
