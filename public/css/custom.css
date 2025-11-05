@@ -33,7 +33,7 @@ html {
 /* ✅ Hero Section */
 .hero {
   position: relative;
-  background: url('/images/hero-bg.jpg') center/cover no-repeat;
+  background: url('images/hero-bg.jpg') center/cover no-repeat;
   color: white;
 }
 .hero::after {
@@ -148,7 +148,6 @@ footer a {
 footer a:hover {
   color: #fff;
 }
-
 
 /* ✅ 반응형 */
 @media screen and (max-width: 768px) {
