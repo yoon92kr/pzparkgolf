@@ -30,7 +30,7 @@
       
       <a href="#hero" class="navbar-item">
         <img  src="https://yoon92kr.github.io/pzparkgolf/images/logo.png"  alt="피지파크골프 로고" style="height: 40px; margin-right: 8px;">
-        <span class="has-text-weight-bold is-size-5">피지파크골프</span>
+        <span class="has-text-weight-bold is-size-3">피지파크골프</span>
       </a>
 
       
@@ -82,13 +82,26 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="swiper-slide" style="background-image:url('https://yoon92kr.github.io/pzparkgolf/images/main2.jpg');"></div>
         <div class="swiper-slide" style="background-image:url('https://yoon92kr.github.io/pzparkgolf/images/main3.jpg');"></div>
       </div>
-      
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
+    </div>
+
+    
+    <div class="header-content-slider">
+      <div class="header-slide-btn" data-index="0">
+        <div class="header-content-slider-title">01</div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+      </div>
+      <div class="header-slide-btn" data-index="1">
+        <div class="header-content-slider-title">02</div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+      </div>
+      <div class="header-slide-btn" data-index="2">
+        <div class="header-content-slider-title">03</div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+      </div>
     </div>
   </div>
 </section>
+
 
 <section id="sub-image" class="section">
   <div class="container has-text-centered">
@@ -164,38 +177,24 @@ document.addEventListener('DOMContentLoaded', () => {
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const swiper = new Swiper('.mySwiper', {
-    loop: true,
-    speed: 800,            
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    grabCursor: true,
-    effect: 'slide',
-    watchSlidesProgress: true,   
-    watchSlidesVisibility: true, 
-    preloadImages: true,         
-    lazy: false,                 
-  });
+const swiper = new Swiper('.mySwiper', {
+  loop: true,
+  autoplay: { delay: 6000, disableOnInteraction: false },
+  on: {
+    slideChange: function () {
+      const allBars = document.querySelectorAll('.progress-fill');
+      allBars.forEach(bar => bar.style.width = '0%');
 
-  
-  document.querySelectorAll('.swiper-slide').forEach(slide => {
-    slide.style.transform = 'translate3d(0,0,0)';
-    slide.style.backfaceVisibility = 'hidden';
-    slide.style.willChange = 'transform';
-  });
+      const index = this.realIndex;
+      const activeBar = document.querySelectorAll('.progress-fill')[index];
+      activeBar.style.transition = 'none';
+      void activeBar.offsetWidth; 
+      activeBar.style.transition = 'width 6s linear';
+      activeBar.style.width = '100%';
+    }
+  }
+});
 
-  
-  window.addEventListener('load', () => swiper.update());
 });
 </script>
 

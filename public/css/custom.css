@@ -11,24 +11,65 @@
 }
 
 html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
   scroll-behavior: smooth;
   font-family: 'Noto Sans KR', sans-serif;
 }
 
 /* 네비게이션 */
-.navbar {
-  background-color: rgba(255, 255, 255, 0.97);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  backdrop-filter: blur(6px);
-  transition: all 0.3s ease-in-out;
+html body header.navbar,
+html body .navbar,
+html body .navbar.is-fixed-top {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  z-index: 10;
 }
-.navbar-item, .navbar-item:visited {
-  color: var(--text-dark) !important;
-  font-weight: 500;
+
+
+/* 불필요한 fixed 클래스 제거용 (Bulma 기본 해제) */
+.navbar.is-fixed-top {
+  position: absolute !important;
 }
-.navbar-item:hover {
-  color: var(--main-green) !important;
+
+/* 네비게이션 링크 스타일 통일 */
+.navbar a.navbar-item,
+.navbar .navbar-link {
+  color: #fff !important;           /* 흰색 글씨 */
+  background: none !important;      /* 배경 제거 */
+  font-size: 1.3rem !important;     /* 글씨 크기 ↑ */
+  font-weight: 600 !important;      /* 글씨 두께 살짝 굵게 */
+  letter-spacing: 0.5px;            /* 약간의 자간 */
+  transition: color 0.3s ease;      /* hover 시 자연스러운 변화 */
 }
+
+/* hover, focus, active 시에도 변화 없이 흰색 유지 */
+.navbar a.navbar-item:hover,
+.navbar a.navbar-item:focus,
+.navbar a.navbar-item.is-active,
+.navbar .navbar-link:hover,
+.navbar .navbar-link:focus,
+.navbar .navbar-link.is-active {
+  color: #fff !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* 드롭다운 아이템도 동일하게 */
+.navbar-dropdown a.navbar-item:hover {
+  color: #fff !important;
+  background: none !important;
+}
+
+
 
 /* Hero Section */
 .hero {
@@ -44,14 +85,13 @@ html {
   display: flex;          /* flex 유지 */
   align-items: center;    /* 세로 중앙 */
   justify-content: center;/* 가로 중앙 */
-  padding: 0;
+  padding: 0 !important;
 }
 
 .hero-body::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.2); /* 필요시 overlay */
   z-index: 1;
   pointer-events: none;  /* 클릭 방해 제거 */
 }
@@ -73,12 +113,48 @@ html {
 }
 
 
-/* Swiper 버튼 & 페이징 */
-.swiper-button-next,
-.swiper-button-prev,
+/* 기본 Swiper dots 숨기기 */
 .swiper-pagination {
-  z-index: 3;  /* overlay보다 위 */
+  display: none !important;
+}
+
+/* 커스텀 인디케이터 */
+.header-content-slider {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1.5rem;
+  z-index: 5;
+}
+
+.header-slide-btn {
+  text-align: center;
   cursor: pointer;
+  width: 60px;
+}
+
+.header-content-slider-title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.3);
+  height: 3px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: #fff;
+  height: 100%;
+  width: 0%;
+  transition: width 6s linear;
 }
 
 /* Hero 텍스트 */

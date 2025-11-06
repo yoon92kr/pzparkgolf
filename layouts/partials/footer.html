@@ -23,38 +23,24 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const swiper = new Swiper('.mySwiper', {
-    loop: true,
-    speed: 800,            // 슬라이드 전환 속도(ms)
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    grabCursor: true,
-    effect: 'slide',
-    watchSlidesProgress: true,   // 성능 최적화
-    watchSlidesVisibility: true, // 성능 최적화
-    preloadImages: true,         // 이미지 미리 로드
-    lazy: false,                 // 필요하면 true로 lazy 로딩
-  });
+const swiper = new Swiper('.mySwiper', {
+  loop: true,
+  autoplay: { delay: 6000, disableOnInteraction: false },
+  on: {
+    slideChange: function () {
+      const allBars = document.querySelectorAll('.progress-fill');
+      allBars.forEach(bar => bar.style.width = '0%');
 
-  // GPU 가속 적용: 각 슬라이드 transform 3d 처리
-  document.querySelectorAll('.swiper-slide').forEach(slide => {
-    slide.style.transform = 'translate3d(0,0,0)';
-    slide.style.backfaceVisibility = 'hidden';
-    slide.style.willChange = 'transform';
-  });
+      const index = this.realIndex;
+      const activeBar = document.querySelectorAll('.progress-fill')[index];
+      activeBar.style.transition = 'none';
+      void activeBar.offsetWidth; // 리플로우로 transition 재시작
+      activeBar.style.transition = 'width 6s linear';
+      activeBar.style.width = '100%';
+    }
+  }
+});
 
-  // 이미지 로딩 후 슬라이드 계산
-  window.addEventListener('load', () => swiper.update());
 });
 </script>
 
