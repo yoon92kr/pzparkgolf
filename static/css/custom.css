@@ -117,15 +117,16 @@ html body .navbar.is-fixed-top {
 /* ✅ 커스텀 인디케이터 */
 .header-content-slider {
   position: absolute;
-  bottom: 260px;              /* 이미지 하단에서 약간 위로 */
-  left: 120px;                /* 왼쪽 여백 */
+  bottom: 15%;       /* 🔹 높이의 15% 위쪽 (px 대신 %) */
+  left: 8%;          /* 🔹 너비의 8% 위치 */
   display: flex;
-  flex-direction: row;       /* 가로 정렬 */
+  flex-direction: row;
   align-items: center;
-  gap: 30px;
+  gap: 2.5vw;        /* 🔹 가로 간격도 반응형 단위로 */
   z-index: 5;
-  pointer-events: none;      /* 클릭 방해 방지 */
+  pointer-events: none;
 }
+
 
 .header-slide-btn {
   display: flex;

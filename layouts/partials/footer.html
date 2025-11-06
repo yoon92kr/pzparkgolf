@@ -18,28 +18,42 @@
   </div>
 </footer>
 
-<!-- Swiper JS & CSS -->
+<!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const slideButtons = document.querySelectorAll('.header-slide-btn');
   const fills = document.querySelectorAll('.progress-fill');
-  const slideInterval = 6000; // 6초
+  const slideInterval = 6000;
+  const burger = document.querySelector('.navbar-burger');
+  const menu = document.getElementById('navbarMenu');
+  const navbarHeight = burger.offsetHeight; // navbar 높이
 
-  // 진행바 초기화
+  // ✅ Swiper 초기화
+  const swiper = new Swiper('.mySwiper', {
+    loop: true,
+    autoplay: { delay: slideInterval, disableOnInteraction: false },
+    speed: 600,
+    on: {
+      init: function() { activateSlide(this.realIndex); },
+      slideChange: function() { resetProgress(); activateSlide(this.realIndex); }
+    }
+  });
+
+  // ✅ 진행바 초기화
   function resetProgress() {
-    fills.forEach(fill => {
-      fill.style.transition = 'none';
-      fill.style.width = '0%';
-    });
+    fills.forEach(fill => { fill.style.transition = 'none'; fill.style.width = '0%'; });
   }
 
-  // 특정 인덱스 활성화
   function activateSlide(index) {
     slideButtons.forEach((btn, i) => {
       btn.classList.toggle('active', i === index);
-      if (i === index) {
+      if(i === index){
         fills[i].style.transition = `width ${slideInterval}ms linear`;
         fills[i].style.width = '100%';
       } else {
@@ -49,33 +63,46 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Swiper 초기화
-  const swiper = new Swiper('.mySwiper', {
-    loop: true,
-    autoplay: {
-      delay: slideInterval,
-      disableOnInteraction: false,
-    },
-    on: {
-      init: function () {
-        activateSlide(this.realIndex); // 첫 슬라이드 인디케이터 활성화
-      },
-      slideChange: function () {
-        resetProgress();
-        activateSlide(this.realIndex); // 슬라이드 바뀔 때 인디케이터 업데이트
-      }
-    }
+  // ✅ 인디케이터 클릭 시 슬라이드 이동
+  slideButtons.forEach((btn, i) => {
+    btn.addEventListener('click', () => { swiper.slideToLoop(i, 600); });
   });
 
-  // 인디케이터 클릭 시 해당 슬라이드로 이동
-  slideButtons.forEach((btn, i) => {
-    btn.addEventListener('click', () => {
-      swiper.slideToLoop(i); // Swiper의 loop 모드에서도 정상 작동
+  // ✅ 네비게이션 메뉴 클릭 → 슬라이드 + 스크롤
+  document.querySelectorAll('.navbar-item').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+
+      // 메뉴별 슬라이드 인덱스 매핑
+      let slideIndex = 0;
+      if(targetId === 'about') slideIndex = 0;
+      else if(targetId === 'product') slideIndex = 1;
+      else if(targetId === 'contact') slideIndex = 2;
+
+      // 슬라이드 이동
+      swiper.slideToLoop(slideIndex, 600);
+
+      // 스크롤 이동 (navbar 높이 보정)
+      const target = document.getElementById(targetId);
+      if(target){
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: targetPosition - navbarHeight, behavior: 'smooth' });
+      }
+
+      // 모바일 메뉴 닫기
+      burger.classList.remove('is-active');
+      menu.classList.remove('is-active');
     });
   });
+
+  // ✅ 모바일 메뉴 토글
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('is-active');
+    menu.classList.toggle('is-active');
+  });
+
+  // ✅ AOS 초기화
+  AOS.init({ duration: 1000, once: false });
 });
-
-
 </script>
-
-

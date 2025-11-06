@@ -1,13 +1,12 @@
 <header class="navbar is-fixed-top has-shadow has-background-white">
   <div class="container">
     <div class="navbar-brand">
-      <!-- ✅ 로고 추가 -->
+      <!-- ✅ 로고 -->
       <a href="#hero" class="navbar-item">
-        <img  src="{{ "images/logo.png" | relURL }}"  alt="피지파크골프 로고" style="max-height: 50px !important; margin-right: 8px;">
+        <img src="{{ "images/logo.png" | relURL }}" alt="피지파크골프 로고" style="max-height: 50px !important; margin-right: 8px;">
         <div class="is-flex is-align-items-center" style="height:100px;">
-		  <span class="has-text-weight-bold is-size-3">피지파크골프</span>
-		</div>
-
+          <span class="has-text-weight-bold is-size-3">피지파크골프</span>
+        </div>
       </a>
 
       <!-- ✅ 모바일 메뉴 버튼 -->
@@ -25,25 +24,3 @@
     </div>
   </div>
 </header>
-
-<script>
-// ✅ 부드러운 스크롤
-document.querySelectorAll('a[href^="#"]').forEach(link=>{
-  link.addEventListener('click', e=>{
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if(target) window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
-  });
-});
-
-// ✅ 모바일 메뉴 토글
-document.addEventListener('DOMContentLoaded', () => {
-  const burger = document.querySelector('.navbar-burger');
-  const menu = document.getElementById('navbarMenu');
-
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('is-active');
-    menu.classList.toggle('is-active');
-  });
-});
-</script>
