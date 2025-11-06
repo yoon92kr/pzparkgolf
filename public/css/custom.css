@@ -34,24 +34,23 @@ html body .navbar.is-fixed-top {
   z-index: 10;
 }
 
-
-/* 불필요한 fixed 클래스 제거용 (Bulma 기본 해제) */
+/* Bulma fixed 클래스 해제 */
 .navbar.is-fixed-top {
   position: absolute !important;
 }
 
-/* 네비게이션 링크 스타일 통일 */
+/* 네비게이션 링크 */
 .navbar a.navbar-item,
 .navbar .navbar-link {
-  color: #fff !important;           /* 흰색 글씨 */
-  background: none !important;      /* 배경 제거 */
-  font-size: 1.3rem !important;     /* 글씨 크기 ↑ */
-  font-weight: 600 !important;      /* 글씨 두께 살짝 굵게 */
-  letter-spacing: 0.5px;            /* 약간의 자간 */
-  transition: color 0.3s ease;      /* hover 시 자연스러운 변화 */
+  color: #fff !important;
+  background: none !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
 }
 
-/* hover, focus, active 시에도 변화 없이 흰색 유지 */
+/* hover, focus, active 시에도 동일 */
 .navbar a.navbar-item:hover,
 .navbar a.navbar-item:focus,
 .navbar a.navbar-item.is-active,
@@ -63,28 +62,26 @@ html body .navbar.is-fixed-top {
   box-shadow: none !important;
 }
 
-/* 드롭다운 아이템도 동일하게 */
+/* 드롭다운 메뉴 동일 처리 */
 .navbar-dropdown a.navbar-item:hover {
   color: #fff !important;
   background: none !important;
 }
-
-
 
 /* Hero Section */
 .hero {
   position: relative;
   height: 100vh;
   color: white;
-  overflow: hidden; /* 슬라이드 영역 넘침 방지 */
+  overflow: hidden;
 }
 
 .hero-body {
   position: relative;
   height: 100%;
-  display: flex;          /* flex 유지 */
-  align-items: center;    /* 세로 중앙 */
-  justify-content: center;/* 가로 중앙 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0 !important;
 }
 
@@ -93,7 +90,7 @@ html body .navbar.is-fixed-top {
   position: absolute;
   inset: 0;
   z-index: 1;
-  pointer-events: none;  /* 클릭 방해 제거 */
+  pointer-events: none;
 }
 
 /* Swiper */
@@ -101,66 +98,78 @@ html body .navbar.is-fixed-top {
   position: relative;
   width: 100%;
   height: 100%;
-  z-index: 2; /* overlay 위 */
+  z-index: 2;
 }
 
 .swiper-slide {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  backface-visibility: hidden; /* GPU 가속 도움 */
-  transform: translate3d(0,0,0); /* GPU 렌더링 활성화 */
+  backface-visibility: hidden;
+  transform: translate3d(0,0,0);
 }
 
-
-/* 기본 Swiper dots 숨기기 */
+/* Swiper dots 제거 */
 .swiper-pagination {
   display: none !important;
 }
 
-/* 커스텀 인디케이터 */
+/* ✅ 커스텀 인디케이터 */
 .header-content-slider {
   position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 260px;              /* 이미지 하단에서 약간 위로 */
+  left: 120px;                /* 왼쪽 여백 */
   display: flex;
-  gap: 1.5rem;
+  flex-direction: row;       /* 가로 정렬 */
+  align-items: center;
+  gap: 30px;
   z-index: 5;
+  pointer-events: none;      /* 클릭 방해 방지 */
 }
 
 .header-slide-btn {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* 왼쪽 정렬 */
+  gap: 6px;
   cursor: pointer;
-  width: 60px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;      /* 개별 클릭 가능 */
+}
+
+.header-slide-btn.active {
+  opacity: 1;
 }
 
 .header-content-slider-title {
   color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 4px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.6);
 }
 
 .progress-bar {
-  background: rgba(255, 255, 255, 0.3);
-  height: 3px;
-  border-radius: 2px;
+  width: 120px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 3px;
   overflow: hidden;
 }
 
 .progress-fill {
-  background: #fff;
-  height: 100%;
   width: 0%;
+  height: 100%;
+  background: #fff;
+  border-radius: 3px;
   transition: width 6s linear;
 }
+
 
 /* Hero 텍스트 */
 .hero-body .container {
   position: relative;
-  z-index: 4; /* 슬라이드, overlay, 버튼 위 */
+  z-index: 4;
   text-align: center;
 }
 
@@ -198,11 +207,13 @@ html body .navbar.is-fixed-top {
 .section {
   padding: 6rem 1.5rem;
 }
+
 .section .title {
   color: var(--main-green);
   font-weight: 700;
   margin-bottom: 1rem;
 }
+
 .section .subtitle {
   color: #555;
   line-height: 1.7;
@@ -214,6 +225,7 @@ html body .navbar.is-fixed-top {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   transition: transform 0.4s ease;
 }
+
 #about img:hover {
   transform: scale(1.03);
 }
@@ -222,15 +234,18 @@ html body .navbar.is-fixed-top {
 #product {
   background-color: var(--light-bg);
 }
+
 #product img {
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
+
 #product img:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 20px rgba(0,0,0,0.15);
 }
+
 #product h3 {
   color: var(--main-green);
   margin-top: 1rem;
@@ -247,6 +262,7 @@ html body .navbar.is-fixed-top {
   border: none;
   transition: 0.3s;
 }
+
 #contact .button:hover {
   background-color: var(--accent-green);
   transform: translateY(-3px);
@@ -259,15 +275,18 @@ footer {
   padding: 2.5rem 0;
   text-align: center;
 }
+
 footer p {
   margin: 0;
   font-size: 0.95rem;
   color: #ffffff;
 }
+
 footer a {
   color: #c8e6c9;
   transition: color 0.2s;
 }
+
 footer a:hover {
   color: #fff;
 }
@@ -277,7 +296,23 @@ footer a:hover {
   .hero .title {
     font-size: 2.2rem;
   }
+
   .hero .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .header-content-slider {
+    left: 40px;
+    bottom: 30px;
+    gap: 10px;
+  }
+
+  .progress-bar {
+    width: 90px;
+    height: 4px;
+  }
+
+  .header-content-slider-title {
     font-size: 1.1rem;
   }
 }

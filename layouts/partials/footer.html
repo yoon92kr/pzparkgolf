@@ -22,25 +22,60 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-const swiper = new Swiper('.mySwiper', {
-  loop: true,
-  autoplay: { delay: 6000, disableOnInteraction: false },
-  on: {
-    slideChange: function () {
-      const allBars = document.querySelectorAll('.progress-fill');
-      allBars.forEach(bar => bar.style.width = '0%');
+document.addEventListener('DOMContentLoaded', function () {
+  const slideButtons = document.querySelectorAll('.header-slide-btn');
+  const fills = document.querySelectorAll('.progress-fill');
+  const slideInterval = 6000; // 6초
 
-      const index = this.realIndex;
-      const activeBar = document.querySelectorAll('.progress-fill')[index];
-      activeBar.style.transition = 'none';
-      void activeBar.offsetWidth; // 리플로우로 transition 재시작
-      activeBar.style.transition = 'width 6s linear';
-      activeBar.style.width = '100%';
-    }
+  // 진행바 초기화
+  function resetProgress() {
+    fills.forEach(fill => {
+      fill.style.transition = 'none';
+      fill.style.width = '0%';
+    });
   }
+
+  // 특정 인덱스 활성화
+  function activateSlide(index) {
+    slideButtons.forEach((btn, i) => {
+      btn.classList.toggle('active', i === index);
+      if (i === index) {
+        fills[i].style.transition = `width ${slideInterval}ms linear`;
+        fills[i].style.width = '100%';
+      } else {
+        fills[i].style.transition = 'none';
+        fills[i].style.width = '0%';
+      }
+    });
+  }
+
+  // Swiper 초기화
+  const swiper = new Swiper('.mySwiper', {
+    loop: true,
+    autoplay: {
+      delay: slideInterval,
+      disableOnInteraction: false,
+    },
+    on: {
+      init: function () {
+        activateSlide(this.realIndex); // 첫 슬라이드 인디케이터 활성화
+      },
+      slideChange: function () {
+        resetProgress();
+        activateSlide(this.realIndex); // 슬라이드 바뀔 때 인디케이터 업데이트
+      }
+    }
+  });
+
+  // 인디케이터 클릭 시 해당 슬라이드로 이동
+  slideButtons.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      swiper.slideToLoop(i); // Swiper의 loop 모드에서도 정상 작동
+    });
+  });
 });
 
-});
+
 </script>
+
 
