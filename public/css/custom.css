@@ -19,25 +19,19 @@ html {
 }
 
 /* 네비게이션 */
-html body header.navbar,
-html body .navbar,
-html body .navbar.is-fixed-top {
-  position: absolute !important;
+.navbar.is-fixed-top {
+  position: fixed !important;
   top: 0;
   left: 0;
   width: 100%;
-  background: none !important;
-  backdrop-filter: none !important;
+  background: transparent !important;  /* 완전 투명 */
+  backdrop-filter: none !important;     /* 흐림 효과 제거 */
   -webkit-backdrop-filter: none !important;
-  box-shadow: none !important;
+  box-shadow: none !important;          /* 그림자 제거 */
   border: none !important;
-  z-index: 10;
+  z-index: 100;
 }
 
-/* Bulma fixed 클래스 해제 */
-.navbar.is-fixed-top {
-  position: absolute !important;
-}
 
 /* 네비게이션 링크 */
 .navbar a.navbar-item,
