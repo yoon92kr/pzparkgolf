@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://yoon92kr.github.io/pzparkgolf/categories/</loc>
+    <loc>http://localhost:1313/pzparkgolf/categories/</loc>
   </url><url>
-    <loc>https://yoon92kr.github.io/pzparkgolf/tags/</loc>
+    <loc>http://localhost:1313/pzparkgolf/tags/</loc>
   </url><url>
-    <loc>https://yoon92kr.github.io/pzparkgolf/</loc>
+    <loc>http://localhost:1313/pzparkgolf/</loc>
   </url>
 </urlset>

@@ -117,8 +117,8 @@ html body .navbar.is-fixed-top {
 /* ✅ 커스텀 인디케이터 */
 .header-content-slider {
   position: absolute;
-  bottom: 15%;       /* 🔹 높이의 15% 위쪽 (px 대신 %) */
-  left: 8%;          /* 🔹 너비의 8% 위치 */
+  bottom: 6%;       /* 🔹 높이의 15% 위쪽 (px 대신 %) */
+  left: 6%;          /* 🔹 너비의 8% 위치 */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -270,8 +270,16 @@ html body .navbar.is-fixed-top {
 }
 
 /* Footer */
+/* Footer */
 footer {
-  background: linear-gradient(180deg, #2e7d32 0%, #1b5e20 100%);
+  background: linear-gradient(
+    180deg, 
+    #FFCD4A 0%,        /* 기준 색상 시작 */
+    #F2B233 25%,       /* #FFCD4A보다 살짝 어둡게 */
+    #E6991C 50%,       /* 조금 더 어둡게 */
+    #CC7F16 75%,       /* 더 깊은 톤 */
+    #B3660F 100%       /* 완전히 어두운 톤 */
+  );
   color: #f9f9f9;
   padding: 2.5rem 0;
   text-align: center;
@@ -284,7 +292,7 @@ footer p {
 }
 
 footer a {
-  color: #c8e6c9;
+  color: #45340c;
   transition: color 0.2s;
 }
 
