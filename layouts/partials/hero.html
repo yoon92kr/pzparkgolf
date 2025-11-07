@@ -1,12 +1,13 @@
 <section id="hero" class="hero">
   <div class="hero-body">
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background-image:url('{{ "images/main1.jpg" | absURL }}');"></div>
-        <div class="swiper-slide" style="background-image:url('{{ "images/main2.jpg" | absURL }}');"></div>
-        <div class="swiper-slide" style="background-image:url('{{ "images/main3.jpg" | absURL }}');"></div>
-      </div>
-    </div>
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide main1"></div>
+    <div class="swiper-slide main2"></div>
+    <div class="swiper-slide main3"></div>
+  </div>
+</div>
+
 
     <!-- 🔹 커스텀 슬라이드 인디케이터 -->
     <div class="header-content-slider">
@@ -37,3 +38,17 @@
     <img id="contact" data-aos="fade-up" src="{{ "images/body6.jpg" | absURL }}" alt="body6" style="max-width:100%;">
   </div>
 </section>
+
+
+{{/* ✅ 모바일용 이미지 CSS inline */}}
+<style>
+  .swiper-slide.main1 { background-image: url('{{ "images/main1.jpg" | absURL }}'); }
+  .swiper-slide.main2 { background-image: url('{{ "images/main2.jpg" | absURL }}'); }
+  .swiper-slide.main3 { background-image: url('{{ "images/main3.jpg" | absURL }}'); }
+
+  @media screen and (max-width: 768px) {
+    .swiper-slide.main1 { background-image: url('{{ "images/main1-mobile.jpg" | absURL }}'); }
+    .swiper-slide.main2 { background-image: url('{{ "images/main2-mobile.jpg" | absURL }}'); }
+    .swiper-slide.main3 { background-image: url('{{ "images/main3-mobile.jpg" | absURL }}'); }
+  }
+</style>

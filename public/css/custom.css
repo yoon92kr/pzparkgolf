@@ -68,6 +68,34 @@ html body .navbar.is-fixed-top {
   background: none !important;
 }
 
+/* 모바일 메뉴 배경 및 텍스트 조정 */
+@media screen and (max-width: 768px) {
+  /* 메뉴가 열렸을 때 */
+  .navbar-menu.is-active {
+    background-color: rgba(0, 0, 0, 0.85); /* 투명 검정 */
+    padding: 1rem 2rem;
+  }
+
+  .navbar-menu.is-active .navbar-item {
+    color: #fff !important;  /* 흰색 글씨 */
+  }
+
+  .navbar-menu.is-active .navbar-item:hover {
+    color: #ffcd4a !important; /* hover 시 강조 색상 */
+  }
+
+  /* 햄버거 버튼 색상 */
+  .navbar-burger {
+    color: #fff !important;
+  }
+
+  /* 햄버거 클릭 시 배경 아이콘 색상 변경 */
+  .navbar-burger.is-active span {
+    background-color: #fff !important;
+  }
+}
+
+
 /* Hero Section */
 .hero {
   position: relative;
@@ -102,12 +130,12 @@ html body .navbar.is-fixed-top {
 }
 
 .swiper-slide {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  backface-visibility: hidden;
-  transform: translate3d(0,0,0);
+  background-position: center center; /* 중앙 기준 */
+  background-size: cover;            /* 화면 꽉 채움 */
+  width: 100%;
+  height: 100vh;                     /* 뷰포트 높이 */
 }
+
 
 /* Swiper dots 제거 */
 .swiper-pagination {
