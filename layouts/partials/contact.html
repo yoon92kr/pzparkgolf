@@ -1,18 +1,165 @@
-<!--
-<section id="contact" class="section has-background-white has-text-centered">
+<section id="contact" class="section">
   <div class="container">
-    <h2 class="title is-2">설치문의</h2>
-    <p class="subtitle is-5 mb-5">
-      파크골프장 시공 및 유지보수 관련 문의는 아래 링크를 통해 접수 가능합니다.
-    </p>
+    <h2 class="title has-text-centered mb-5" style="font-size: 4rem; margin-bottom: 46px !important;">설치문의</h2>
 
-    <a href="https://naver.me/your-form-link" target="_blank" class="button is-primary is-medium is-rounded">
-      문의하기
-    </a>
+    <div class="columns is-vcentered is-variable is-8">
+      <!-- 🔹 왼쪽 안내 영역 -->
+      <div class="column is-6 contact-info">
+        <h3 class="subtitle"><b style="font-size: 2.1rem;">궁금한 점이 있으신가요?</b><br>지금 바로 피지파크골프에 문의하세요.</h3>
+        
+      </div>
 
+      <!-- 🔹 오른쪽 폼 영역 -->
+      <div class="column is-6">
+        <form id="inquiry-form" action="https://formspree.io/f/xdkpqjwr" method="POST">
+          <!-- 이름 + 연락처 -->
+          <div class="field is-flex is-flex-wrap-wrap gap-3">
+            <div class="control flex-grow-1">
+              <label class="label" for="name">성함</label>
+              <input class="input" type="text" id="name" name="name" placeholder="성함" required>
+            </div>
+            <div class="control flex-grow-1">
+              <label class="label" for="tel">연락처</label>
+              <input class="input" type="text" id="tel" name="tel" placeholder="연락처" maxlength="13" oninput="phoneAutoHypen(this);" required>
+            </div>
+          </div>
+
+          <!-- 문의내용 -->
+          <div class="field mt-4">
+            <label class="label" for="content">문의내용</label>
+            <div class="control">
+              <textarea class="textarea" id="content" name="message" placeholder="문의내용" required></textarea>
+            </div>
+          </div>
+
+          <!-- 개인정보 동의 -->
+          <div class="field mt-4">
+            <label class="checkbox">
+              <input type="checkbox" id="privacy" name="privacy" required>
+              개인정보 수집 및 이용 동의 
+              <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">[보기]</a>
+            </label>
+          </div>
+
+          <!-- 버튼 -->
+          <div class="field mt-5">
+            <div class="control">
+              <button type="submit" class="button is-primary is-fullwidth">문의하기</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
--->
+
+<!-- 개인정보 모달 (기존 유지) -->
 
 
 
+<!-- 개인정보 모달 -->
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content custom-modal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="termsModalLabel">📋 개인정보 수집 및 이용 안내</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <p>(주)파크존골프는 문의하신 내용을 처리하기 위해 아래와 같이 개인정보를 수집 및 이용합니다.</p>
+
+        <ol>
+          <li>
+            <strong>1. 수집 항목</strong>
+            <ul>
+              <li>필수: 이름, 연락처(전화번호 또는 이메일), 문의 내용</li>
+              <li>선택: 첨부 파일, 기타 추가 정보</li>
+            </ul>
+          </li>
+          <li>
+            <strong>2. 수집 목적</strong>
+            <ul>
+              <li>고객 문의 응대 및 처리 결과 회신</li>
+              <li>민원 처리 및 서비스 개선</li>
+            </ul>
+          </li>
+          <li>
+            <strong>3. 보유 및 이용 기간</strong>
+            <ul>
+              <li>수집일로부터 1년간 보관 후 파기 (관련 법령에 따라 보존 필요시 해당 기간까지 보관)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>4. 동의 거부 시 불이익</strong>
+            <ul>
+              <li>개인정보 수집 및 이용에 동의하지 않을 경우, 문의 접수가 제한될 수 있습니다.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <p class="mt-4 text-center text-muted">※ 위 내용을 충분히 숙지하였으며, 개인정보 수집 및 이용에 동의합니다.</p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="button is-primary" data-bs-dismiss="modal" style="color: #fff;">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+function phoneAutoHypen(obj){
+    let number = obj.value.replace(/[^0-9]/g,'');
+    if(number.length < 4) {
+        obj.value = number;
+    } else if(number.length < 7) {
+        obj.value = number.substr(0,3) + '-' + number.substr(3);
+    } else if(number.length < 11) {
+        obj.value = number.substr(0,3) + '-' + number.substr(3,3) + '-' + number.substr(6);
+    } else {
+        obj.value = number.substr(0,3) + '-' + number.substr(3,4) + '-' + number.substr(7,4);
+    }
+}
+
+document.getElementById('inquiry-form').addEventListener('submit', async function(e){
+  e.preventDefault(); // 페이지 이동 방지
+
+  const form = e.target;
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+if(response.ok){
+  showToast('문의가 성공적으로 전송되었습니다!');
+  form.reset(); 
+} else {
+  showToast('문의 전송에 실패했습니다. 다시 시도해주세요.', true);
+}
+
+  } catch(err){
+  showToast('문의 전송 중 오류가 발생했습니다.', true);
+  console.error(err);
+}
+
+});
+
+function showToast(message, isError = false) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.style.backgroundColor = isError ? '#d32f2f' : '#2e7d32'; // 빨강 / 초록 구분
+  toast.classList.add('show');
+
+  // 3초 뒤 자동 사라짐
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+}
+
+</script>

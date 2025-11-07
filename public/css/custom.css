@@ -353,3 +353,235 @@ footer a:hover {
     font-size: 1.1rem;
   }
 }
+
+/* Contact Section */
+#contact {
+  background-color: #f8f8f8;
+  padding: 6rem 1.5rem;
+}
+
+/* 🔹 columns 전체를 같은 높이로 맞춤 */
+#contact .columns {
+  display: flex;
+  align-items: stretch; /* ✅ 좌우 컬럼 동일 높이 */
+}
+
+/* 제목 */
+#contact .title {
+  color: #2e7d32;
+  font-weight: 700;
+}
+
+/* 🔹 왼쪽 안내 영역 */
+#contact .contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* ✅ 위쪽 정렬 */
+  align-items: flex-start;
+  padding-right: 2rem;
+  height: 100%; /* ✅ 오른쪽 폼과 동일 높이 */
+  box-sizing: border-box;
+}
+
+#contact .contact-info .subtitle {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  width: 100%;
+}
+
+/* 🔹 왼쪽 이미지 */
+#contact .contact-image {
+  width: 100%;
+  height: 100%; /* ✅ 남은 공간 꽉 채움 */
+  min-height: 280px;
+  flex-grow: 1; /* ✅ 폼 높이에 맞춰 늘어남 */
+  border-radius: 12px;
+  background-image: url('{{ "images/main1.jpg" | absURL }}');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔹 오른쪽 폼 영역 */
+#contact form {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+#contact .field.is-flex {
+  display: flex;
+  gap: 1rem;
+}
+
+#contact .field.is-flex .control {
+  flex: 1;
+}
+
+#contact .input,
+#contact .textarea {
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#contact .textarea {
+  min-height: 120px;
+}
+
+#contact .button.is-primary {
+  background-color: #2e7d32;
+  border-radius: 30px;
+  padding: 1rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+#contact .button.is-primary:hover {
+  background-color: #43a047;
+  transform: translateY(-3px);
+}
+
+/* 🔹 반응형 (모바일) */
+@media screen and (max-width: 768px) {
+  #contact .columns {
+    flex-direction: column; /* ✅ 위아래로 쌓기 */
+  }
+
+  #contact .contact-info {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  #contact .contact-image {
+    height: 220px;
+    min-height: 220px;
+  }
+
+  #contact form {
+    padding: 1.5rem;
+  }
+
+  #contact .field.is-flex {
+    flex-direction: column;
+  }
+}
+
+
+/* ✅ 개인정보 모달 커스텀 디자인 */
+.custom-modal {
+  border-radius: 16px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.custom-modal .modal-header {
+  background-color: #2e7d32;
+  color: #fff;
+  border-bottom: none;
+  padding: 1.2rem 1.5rem;
+}
+
+.custom-modal .modal-header h5 {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.custom-modal .modal-body {
+  padding: 2rem 2rem 1.5rem;
+  color: #333;
+  line-height: 1.7;
+  max-height: 65vh; /* ✅ 내용 많을 경우 스크롤 */
+  overflow-y: auto;
+}
+
+.custom-modal .modal-body strong {
+  color: #2e7d32;
+}
+
+.custom-modal .modal-body ol {
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.custom-modal .modal-body ul {
+  margin-top: 0.5rem;
+  margin-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.custom-modal .modal-footer {
+  border-top: 1px solid #e0e0e0;
+  padding: 1rem 1.5rem;
+  text-align: right;
+  background: #fafafa;
+}
+
+.custom-modal .button.is-primary {
+  background-color: #2e7d32;
+  border-radius: 30px;
+  padding: 0.8rem 1.8rem;
+  font-weight: 600;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.custom-modal .button.is-primary:hover {
+  background-color: #43a047;
+  transform: translateY(-2px);
+}
+
+.btn-close {
+  filter: invert(1);
+}
+
+/* ✅ Bulma / Bootstrap z-index 충돌 방지 */
+.modal-backdrop.show {
+  z-index: 1040 !important;
+}
+
+.modal.fade.show {
+  z-index: 1050 !important;
+}
+
+/* ✅ 혹시 Bulma의 .modal 스타일이 겹쳐있다면 완전히 비활성화 */
+.modal.is-active {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+
+/* ✅ 전송 완료 토스트 스타일 */
+.custom-toast {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background-color: #2e7d32;
+  color: #fff;
+  padding: 1rem 1.8rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+  z-index: 2000;
+}
+
+/* 표시 상태 */
+.custom-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
