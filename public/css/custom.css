@@ -368,7 +368,7 @@ footer a:hover {
 
 /* 제목 */
 #contact .title {
-  color: #2e7d32;
+  color: #F2B233;
   font-weight: 700;
 }
 
@@ -435,7 +435,7 @@ footer a:hover {
 }
 
 #contact .button.is-primary {
-  background-color: #2e7d32;
+  background-color: #F2B233;
   border-radius: 30px;
   padding: 1rem 2.2rem;
   font-size: 1.1rem;
@@ -446,7 +446,7 @@ footer a:hover {
 }
 
 #contact .button.is-primary:hover {
-  background-color: #43a047;
+  background-color: #e9a928;
   transform: translateY(-3px);
 }
 
@@ -486,7 +486,7 @@ footer a:hover {
 }
 
 .custom-modal .modal-header {
-  background-color: #2e7d32;
+  background-color: #F2B233;
   color: #fff;
   border-bottom: none;
   padding: 1.2rem 1.5rem;
@@ -506,7 +506,7 @@ footer a:hover {
 }
 
 .custom-modal .modal-body strong {
-  color: #2e7d32;
+  color: #F2B233;
 }
 
 .custom-modal .modal-body ol {
@@ -528,7 +528,7 @@ footer a:hover {
 }
 
 .custom-modal .button.is-primary {
-  background-color: #2e7d32;
+  background-color: #F2B233;
   border-radius: 30px;
   padding: 0.8rem 1.8rem;
   font-weight: 600;
@@ -537,7 +537,7 @@ footer a:hover {
 }
 
 .custom-modal .button.is-primary:hover {
-  background-color: #43a047;
+  background-color: #e9a928;
   transform: translateY(-2px);
 }
 
@@ -584,4 +584,8 @@ footer a:hover {
 .custom-toast.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+body.modal-open {
+  padding-right: 0 !important;
 }
