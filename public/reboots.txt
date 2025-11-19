@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yoon92kr.github.io/pzparkgolf/sitemap.xml

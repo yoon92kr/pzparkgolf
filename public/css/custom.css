@@ -20,7 +20,7 @@ html {
 
 /* 네비게이션 */
 .navbar.is-fixed-top {
-  position: fixed !important;
+  position: absolute !important;
   top: 0;
   left: 0;
   width: 100%;
